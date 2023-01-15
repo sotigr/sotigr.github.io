@@ -660,8 +660,8 @@ This cpu has 6 cpus and 2 threads per cpu, that makes for 12 vcpus:</p>
 <p>To isolate the vcpus at runtime we need to create a libvirt hook</p>
 <p>Create a script named <code>/etc/libvirt/hooks/qemu.d/isolate-cpus.sh</code></p>
 <p>Paste the following script after editing the <code>reserved</code> and <code>cores</code> variables</p>
-<p>The <code>reserved</code> variable refers to the guest vcpus, so for my case <code>0,6,1,7,2,8,3,9</code>
-The <code>cores</code> variable must have the whole range of vcpus of the system <code>0-11</code></p>
+<p>The <code>reserved</code> variable refers to the host vcpus, so for my case <code>4-5,10-11</code></p>
+<p>The <code>cores</code> variable must have the whole range of vcpus of the system <code>0-11</code></p>
 <p><a href="https://gist.github.com/oleduc/6d2f252d4ebb45f7dc8677523053c062">Script Source</a>
 <div class="highlight"><span class="filename">/etc/libvirt/hooks/qemu.d/isolate-cpus.sh</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/bin/bash</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -670,7 +670,7 @@ The <code>cores</code> variable must have the whole range of vcpus of the system
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Ex: 1st Core -&gt; reserved=0</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># Ex: 1st &amp; 2nt Cores -&gt; reserved=0,1</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Ex: 1st Physical Core (16 Virtual Cores) -&gt; reserved=0,8</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nv">reserved</span><span class="o">=</span><span class="m">0</span>-3,6-9
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nv">reserved</span><span class="o">=</span><span class="m">4</span>-5,10-11
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Host core range numbered from 0 to core count - 1</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># You must put all the cores of your host CPU</span>
@@ -710,6 +710,9 @@ The <code>cores</code> variable must have the whole range of vcpus of the system
 <li>nohz_full=0-3,6-9</li>
 <li>rcu_nocbs=0-3,6-9</li>
 </ul>
+<p>Apply grub configuration
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
+</code></pre></div></p>
 
 
 

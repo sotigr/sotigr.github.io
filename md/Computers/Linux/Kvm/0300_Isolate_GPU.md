@@ -35,7 +35,7 @@ Open `/etc/default/grub` and add the following parameters in the `GRUB_CMDLINE_L
 * rd.driver.pre=vfio-pci
 * transparent_hugepage=never `faster memory access for the VM`
 * vfio pci.ids=10de:1b06,10de:10ef `add your ids accordingly`
-* pcie_acs_override=downstream,multifunction `whether this option is good is debatable probably should remove`
+* pcie_acs_override=downstream,multifunction `must add if you ACS patched your kernel`
 
 My file looks like this:
 

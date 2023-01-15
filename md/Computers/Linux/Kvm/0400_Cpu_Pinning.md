@@ -41,7 +41,8 @@ Create a script named `/etc/libvirt/hooks/qemu.d/isolate-cpus.sh`
 
 Paste the following script after editing the `reserved` and `cores` variables
 
-The `reserved` variable refers to the guest vcpus, so for my case `0,6,1,7,2,8,3,9`
+The `reserved` variable refers to the host vcpus, so for my case `4-5,10-11`
+
 The `cores` variable must have the whole range of vcpus of the system `0-11`
 
 [Script Source](https://gist.github.com/oleduc/6d2f252d4ebb45f7dc8677523053c062)
@@ -53,7 +54,7 @@ The `cores` variable must have the whole range of vcpus of the system `0-11`
 # Ex: 1st Core -> reserved=0
 # Ex: 1st & 2nt Cores -> reserved=0,1
 # Ex: 1st Physical Core (16 Virtual Cores) -> reserved=0,8
-reserved=0-3,6-9
+reserved=4-5,10-11
 
 # Host core range numbered from 0 to core count - 1
 # You must put all the cores of your host CPU
@@ -96,3 +97,8 @@ Edit the `/etc/default/grub` file and add to the GRUB_CMDLINE_LINUX_DEFAULT para
 * isolcpus=0-3,6-9
 * nohz_full=0-3,6-9
 * rcu_nocbs=0-3,6-9
+ 
+Apply grub configuration
+```sh
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```

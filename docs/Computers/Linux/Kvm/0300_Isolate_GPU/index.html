@@ -528,7 +528,7 @@
 <li>rd.driver.pre=vfio-pci</li>
 <li>transparent_hugepage=never <code>faster memory access for the VM</code></li>
 <li>vfio pci.ids=10de:1b06,10de:10ef <code>add your ids accordingly</code></li>
-<li>pcie_acs_override=downstream,multifunction <code>whether this option is good is debatable probably should remove</code></li>
+<li>pcie_acs_override=downstream,multifunction <code>must add if you ACS patched your kernel</code></li>
 </ul>
 <p>My file looks like this:</p>
 <div class="highlight"><span class="filename">/etc/default/grub</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>...
