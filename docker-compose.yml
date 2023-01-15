@@ -2,6 +2,7 @@ version: "3"
 
 services:
   mkdocs:
+    container_name: mkdocs
     build: 
       context: .
       dockerfile: Dockerfile
