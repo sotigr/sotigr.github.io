@@ -9,20 +9,24 @@
       
       
       
+        <link rel="prev" href="../0500_SwitchKeyboard/">
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      
+        <link rel="next" href="../0700_Virtual_Disks/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
-        <title>Sotig's notes</title>
+        <title>Fix audio latency - Sotig's notes</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.558e4712.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.558e4712.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
       
       
 
@@ -38,7 +42,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,6 +66,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#fix-audio-latency" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -72,7 +81,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Sotig&#39;s notes" class="md-header__button md-logo" aria-label="Sotig's notes" data-md-component="logo">
+    <a href="../../../.." title="Sotig&#39;s notes" class="md-header__button md-logo" aria-label="Sotig's notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -91,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Fix audio latency
             
           </span>
         </div>
@@ -158,7 +167,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Sotig&#39;s notes" class="md-nav__button md-logo" aria-label="Sotig's notes" data-md-component="logo">
+    <a href="../../../.." title="Sotig&#39;s notes" class="md-nav__button md-logo" aria-label="Sotig's notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -177,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         Welcome to my little note dump
       </a>
     </li>
@@ -190,18 +199,20 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
           Computers
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -217,18 +228,20 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_2_1" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2_1" tabindex="0" aria-expanded="true">
           Linux
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -244,18 +257,20 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_1_1" type="checkbox" id="__nav_2_1_1" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_1_1" type="checkbox" id="__nav_2_1_1" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_2_1_1" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2_1_1" tabindex="0" aria-expanded="true">
           Kvm
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -273,7 +288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Computers/Linux/Kvm/0098_Resources/" class="md-nav__link">
+      <a href="../0098_Resources/" class="md-nav__link">
         Resources
       </a>
     </li>
@@ -287,7 +302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Computers/Linux/Kvm/0099_Initial_Setup/" class="md-nav__link">
+      <a href="../0099_Initial_Setup/" class="md-nav__link">
         Initial Setup
       </a>
     </li>
@@ -301,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Computers/Linux/Kvm/0100_Specs/" class="md-nav__link">
+      <a href="../0100_Specs/" class="md-nav__link">
         Computer specs
       </a>
     </li>
@@ -315,7 +330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Computers/Linux/Kvm/0200_IOMMU/" class="md-nav__link">
+      <a href="../0200_IOMMU/" class="md-nav__link">
         IOMMU
       </a>
     </li>
@@ -329,7 +344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Computers/Linux/Kvm/0300_Isolate_GPU/" class="md-nav__link">
+      <a href="../0300_Isolate_GPU/" class="md-nav__link">
         Isolate GPU
       </a>
     </li>
@@ -343,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Computers/Linux/Kvm/0400_Cpu_Pinning/" class="md-nav__link">
+      <a href="../0400_Cpu_Pinning/" class="md-nav__link">
         Cpu pinning and isolation
       </a>
     </li>
@@ -357,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Computers/Linux/Kvm/0500_SwitchKeyboard/" class="md-nav__link">
+      <a href="../0500_SwitchKeyboard/" class="md-nav__link">
         Switch keyboard and mouse
       </a>
     </li>
@@ -369,11 +384,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/Computers/Linux/Kvm/0600_Fix_Audio_Latency%20copy/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Fix audio latency
       </a>
+      
     </li>
   
 
@@ -385,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Computers/Linux/Kvm/0700_Virtual_Disks/" class="md-nav__link">
+      <a href="../0700_Virtual_Disks/" class="md-nav__link">
         RAW Virtual Disks
       </a>
     </li>
@@ -399,7 +424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Computers/Linux/Kvm/1000_Win11Vm/" class="md-nav__link">
+      <a href="../1000_Win11Vm/" class="md-nav__link">
         Win 11 Vm config
       </a>
     </li>
@@ -413,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Computers/Linux/Kvm/1100_LinuxVm/" class="md-nav__link">
+      <a href="../1100_LinuxVm/" class="md-nav__link">
         Linux Vm config
       </a>
     </li>
@@ -458,6 +483,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -469,8 +496,24 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="fix-audio-latency">Fix audio latency</h1>
+<p>WARNING: Possibly unstable</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;qemu:commandline&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>...
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&lt;qemu:env</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;QEMU_AUDIO_TIMER_PERIOD&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>...
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">&lt;/qemu:commandline&gt;</span>
+</code></pre></div>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -502,10 +545,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["content.code.copy"], "search": "/assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy"], "search": "../../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.51d95adb.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
     
   </body>

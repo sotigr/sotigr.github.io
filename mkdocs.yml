@@ -1,4 +1,5 @@
-site_name: My Docs 
+site_name: Sotig's notes
+
 docs_dir: md
 site_dir: docs
 
@@ -11,6 +12,7 @@ theme:
     - content.code.copy
  
 markdown_extensions:
+  - tables
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
