@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../0300_Isolate_GPU/">
+        <link rel="prev" href="../0700_Virtual_Disks/">
       
       
-        <link rel="next" href="../0500_SwitchKeyboard/">
+        <link rel="next" href="../1000_Win10-11Vm/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
-        <title>Cpu pinning and isolation - Sotig's notes</title>
+        <title>Hugepages memory optimization - Sotig's notes</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cpu-pinning-and-isolation" class="md-skip">
+        <a href="#hugepages-memory-optimization" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cpu pinning and isolation
+              Hugepages memory optimization
             
           </span>
         </div>
@@ -356,79 +356,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Cpu pinning and isolation
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../0400_Cpu_Pinning/" class="md-nav__link">
         Cpu pinning and isolation
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#use-lstopo-to-reference-the-cpu-topology" class="md-nav__link">
-    Use lstopo to reference the cpu topology
-  </a>
-  
-    <nav class="md-nav" aria-label="Use lstopo to reference the cpu topology">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#get-the-vcpus" class="md-nav__link">
-    Get the vcpus
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dynamic-cpu-isolation" class="md-nav__link">
-    Dynamic cpu isolation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#static-cpu-isolation" class="md-nav__link">
-    Static cpu isolation
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -480,11 +412,79 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../0800_Hugepages/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Hugepages memory optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Hugepages memory optimization
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grub" class="md-nav__link">
+    Grub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guest-configuration" class="md-nav__link">
+    Guest configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -565,36 +565,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#use-lstopo-to-reference-the-cpu-topology" class="md-nav__link">
-    Use lstopo to reference the cpu topology
+  <a href="#reference" class="md-nav__link">
+    Reference
   </a>
   
-    <nav class="md-nav" aria-label="Use lstopo to reference the cpu topology">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get-the-vcpus" class="md-nav__link">
-    Get the vcpus
+  <a href="#grub" class="md-nav__link">
+    Grub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guest-configuration" class="md-nav__link">
+    Guest configuration
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dynamic-cpu-isolation" class="md-nav__link">
-    Dynamic cpu isolation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#static-cpu-isolation" class="md-nav__link">
-    Static cpu isolation
-  </a>
   
 </li>
       
@@ -614,119 +614,28 @@
 
 
 
-<h1 id="cpu-pinning-and-isolation">Cpu pinning and isolation</h1>
-<p>Cpu pinning lets the virtual machine to run only on specified vcpus. You can combine this with cpu core isolation to achieve maximum performance.</p>
-<h2 id="use-lstopo-to-reference-the-cpu-topology">Use lstopo to reference the cpu topology</h2>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>lstopo
+<h1 id="hugepages-memory-optimization">Hugepages memory optimization</h1>
+<h2 id="reference">Reference</h2>
+<p><a href="https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Huge_memory_pages">https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Huge_memory_pages</a></p>
+<h2 id="setup">Setup</h2>
+<p>According to the resource above it is preferable to use 1gb pages and reserve an amount of memory at startup for the guest to use.</p>
+<h3 id="grub">Grub</h3>
+<p>Edit <code>/etc/default/grub</code> and add the following parameters to <code>GRUB_CMDLINE_LINUX_DEFAULT</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>default_hugepagesz=1G hugepagesz=1G hugepages=16
 </code></pre></div>
-This is the output for AMD Ryzen™ 5 3600 
-<img alt="Lstopo" src="../img/lstopo.png" /></p>
-<p>From that we can link each core to its vcpus
-This cpu has 6 cpus and 2 threads per cpu, that makes for 12 vcpus:</p>
-<table>
-<thead>
-<tr>
-<th>CORE</th>
-<th>VCPU 1</th>
-<th>VCPU 2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CORE 0</td>
-<td>0</td>
-<td>6</td>
-</tr>
-<tr>
-<td>CORE 1</td>
-<td>1</td>
-<td>7</td>
-</tr>
-<tr>
-<td>CORE 2</td>
-<td>2</td>
-<td>8</td>
-</tr>
-<tr>
-<td>CORE 3</td>
-<td>3</td>
-<td>9</td>
-</tr>
-<tr>
-<td>CORE 4</td>
-<td>4</td>
-<td>10</td>
-</tr>
-<tr>
-<td>CORE 5</td>
-<td>5</td>
-<td>11</td>
-</tr>
-</tbody>
-</table>
-<p>Now you have to decide which and how many core to reserve for the host and how many for the guest.</p>
-<p>For this setup we will use core <code>0,1,2,3</code> for the guest vm and leave core <code>4</code> and <code>5</code> for the host.</p>
-<h3 id="get-the-vcpus">Get the vcpus</h3>
-<p>From the topology of the cpu we can now find out the vcpus we need for the guest and the host.</p>
-<p>For the guest <code>0,6,1,7,2,8,3,9</code> vpus or <code>0-3,6-9</code> </p>
-<p>For the host <code>4,10,5,11</code> vcpus or <code>4-5,10-11</code></p>
-<h2 id="dynamic-cpu-isolation">Dynamic cpu isolation</h2>
-<p>To isolate the vcpus at runtime we need to create a libvirt hook</p>
-<p>Create a script named <code>/etc/libvirt/hooks/qemu.d/isolate-cpus.sh</code></p>
-<p>Paste the following script after editing the <code>reserved</code> and <code>cores</code> variables</p>
-<p>The <code>reserved</code> variable refers to the host vcpus, so for my case <code>4-5,10-11</code></p>
-<p>The <code>cores</code> variable must have the whole range of vcpus of the system <code>0-11</code></p>
-<p><a href="https://gist.github.com/oleduc/6d2f252d4ebb45f7dc8677523053c062">Script Source</a>
-<div class="highlight"><span class="filename">/etc/libvirt/hooks/qemu.d/isolate-cpus.sh</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/bin/bash</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Cores reserved for the host machine</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Must include QEMU IO/Emulation cores if configured</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Ex: 1st Core -&gt; reserved=0</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># Ex: 1st &amp; 2nt Cores -&gt; reserved=0,1</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Ex: 1st Physical Core (16 Virtual Cores) -&gt; reserved=0,8</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nv">reserved</span><span class="o">=</span><span class="m">4</span>-5,10-11
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Host core range numbered from 0 to core count - 1</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># You must put all the cores of your host CPU</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># Cores not in $cores_for_host are for Guests</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Ex: 8 Cores  -&gt; cores=0-7</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1"># Ex: 16 Cores -&gt; cores=0-15</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="nv">cores</span><span class="o">=</span><span class="m">0</span>-11
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1"># See Arch wiki for more informations https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Isolating_pinned_CPUs</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="nv">command</span><span class="o">=</span><span class="nv">$2</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="nv">valid_cmds</span><span class="o">=</span><span class="s1">&#39;prepare,start,started,stopped,release,migrate,restore&#39;</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;started&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hook/Qemu : isolate-cpus.sh : Isolate CPUS&quot;</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">  </span>systemctl<span class="w"> </span>set-property<span class="w"> </span>--runtime<span class="w"> </span>--<span class="w"> </span>system.slice<span class="w"> </span><span class="nv">AllowedCPUs</span><span class="o">=</span><span class="nv">$reserved</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">  </span>systemctl<span class="w"> </span>set-property<span class="w"> </span>--runtime<span class="w"> </span>--<span class="w"> </span>user.slice<span class="w"> </span><span class="nv">AllowedCPUs</span><span class="o">=</span><span class="nv">$reserved</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">  </span>systemctl<span class="w"> </span>set-property<span class="w"> </span>--runtime<span class="w"> </span>--<span class="w"> </span>init.slice<span class="w"> </span><span class="nv">AllowedCPUs</span><span class="o">=</span><span class="nv">$reserved</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;release&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hook/Qemu : isolate-cpus.sh : Allow all CPUS&quot;</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">  </span>systemctl<span class="w"> </span>set-property<span class="w"> </span>--runtime<span class="w"> </span>--<span class="w"> </span>system.slice<span class="w"> </span><span class="nv">AllowedCPUs</span><span class="o">=</span><span class="nv">$cores</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">  </span>systemctl<span class="w"> </span>set-property<span class="w"> </span>--runtime<span class="w"> </span>--<span class="w"> </span>user.slice<span class="w"> </span><span class="nv">AllowedCPUs</span><span class="o">=</span><span class="nv">$cores</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">  </span>systemctl<span class="w"> </span>set-property<span class="w"> </span>--runtime<span class="w"> </span>--<span class="w"> </span>init.slice<span class="w"> </span><span class="nv">AllowedCPUs</span><span class="o">=</span><span class="nv">$cores</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$valid_cmds</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="nv">$command</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hook/Qemu : isolate-cpus.sh : Supported command but do nothing&quot;</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="k">else</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Invalid commands. Ex: ./script vm_name [prepare|start|started|stopped|release|migrate|restore]&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="k">fi</span>
-</code></pre></div></p>
-<p>With this method libvirt will isolate the cpus when the vm starts and return them to the host when the vm stops</p>
-<h2 id="static-cpu-isolation">Static cpu isolation</h2>
-<p>This method is more straight forward but the host will always ignore the cpus reserved for the guest</p>
-<p>Edit the <code>/etc/default/grub</code> file and add to the GRUB_CMDLINE_LINUX_DEFAULT parameter:</p>
-<ul>
-<li>isolcpus=0-3,6-9</li>
-<li>nohz_full=0-3,6-9</li>
-<li>rcu_nocbs=0-3,6-9</li>
-</ul>
-<p>Apply grub configuration
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
-</code></pre></div></p>
+Apply grub configuration
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
+</code></pre></div>
+This will reserver 16 GB for the guest. Make sure there is some spare memory for the host.</p>
+<h3 id="guest-configuration">Guest configuration</h3>
+<p>To enable hugepage usage for the guest add the following to the guest's xml configuration</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>...
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">&lt;memoryBacking&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&lt;hugepages/&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">&lt;/memoryBacking&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>...
+</code></pre></div>
+<p>To disable transparent pages add <code>transparent_hugepage=never</code> to the grub config</p>
 
 
 

@@ -19,6 +19,11 @@ Optiomization guide
 
 [https://mathiashueber.com/performance-tweaks-gaming-on-virtual-machines/](https://mathiashueber.com/performance-tweaks-gaming-on-virtual-machines/)
 
+## Best resource
+[https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF)
+
+
+## Pacman
 
 ```sh
 sudo pacman -Sy autoconf
