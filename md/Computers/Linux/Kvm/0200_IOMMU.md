@@ -33,4 +33,3 @@ makepkg -si
 # or
 makepkg -si --skippgpcheck
 ```
-
