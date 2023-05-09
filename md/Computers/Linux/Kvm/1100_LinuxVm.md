@@ -2,9 +2,9 @@
 
 ## Config
 ```xml
-<domain xmlns:qemu="http://libvirt.org/schemas/domain/qemu/1.0" type="kvm">
+ <domain xmlns:qemu="http://libvirt.org/schemas/domain/qemu/1.0" type="kvm">
   <name>brive</name>
-  <uuid>c21d79ee-1f92-40da-a9cf-a9b93b8abf66</uuid>
+  <uuid>93f78f12-0745-4280-b812-524420ce0a9f</uuid>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
       <libosinfo:os id="http://fedoraproject.org/fedora/unknown"/>
@@ -12,8 +12,11 @@
   </metadata>
   <memory unit="KiB">16777216</memory>
   <currentMemory unit="KiB">16777216</currentMemory>
-  <vcpu placement="static">8</vcpu>
-  <iothreads>2</iothreads>
+  <memoryBacking>
+    <hugepages/>
+  </memoryBacking>
+  <vcpu placement="static">10</vcpu>
+  <iothreads>1</iothreads>
   <cputune>
     <vcpupin vcpu="0" cpuset="0"/>
     <vcpupin vcpu="1" cpuset="6"/>
@@ -23,9 +26,10 @@
     <vcpupin vcpu="5" cpuset="8"/>
     <vcpupin vcpu="6" cpuset="3"/>
     <vcpupin vcpu="7" cpuset="9"/>
-    <emulatorpin cpuset="4-5,10-11"/>
+    <vcpupin vcpu="8" cpuset="4"/>
+    <vcpupin vcpu="9" cpuset="10"/>
+    <emulatorpin cpuset="5,11"/>
     <iothreadpin iothread="1" cpuset="5,11"/>
-    <iothreadpin iothread="2" cpuset="4,10"/>
   </cputune>
   <sysinfo type="smbios">
     <bios>
@@ -64,16 +68,14 @@
     <vmport state="off"/>
     <ioapic driver="kvm"/>
   </features>
-  <cpu mode="custom" match="exact" check="none">
-    <model fallback="allow">EPYC</model>
-    <topology sockets="1" dies="1" cores="4" threads="2"/>
+  <cpu mode="host-passthrough" check="none" migratable="on">
+    <topology sockets="1" dies="1" cores="5" threads="2"/>
     <feature policy="require" name="topoext"/>
+    <feature policy="require" name="invtsc"/>
     <feature policy="disable" name="vmx"/>
-    <feature policy="require" name="ibpb"/>
     <feature policy="require" name="pdpe1gb"/>
-    <feature policy="require" name="virt-ssbd"/>
     <feature policy="require" name="amd-ssbd"/>
-    <feature policy="require" name="amd-no-ssb"/>
+    <feature policy="disable" name="amd-no-ssb"/>
     <feature policy="require" name="stibp"/>
   </cpu>
   <clock offset="localtime">
@@ -81,7 +83,6 @@
     <timer name="pit" tickpolicy="delay"/>
     <timer name="hpet" present="no"/>
     <timer name="hypervclock" present="yes"/>
-    <timer name="tsc" present="yes" mode="native"/>
   </clock>
   <on_poweroff>destroy</on_poweroff>
   <on_reboot>restart</on_reboot>
@@ -94,7 +95,7 @@
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type="file" device="disk">
       <driver name="qemu" type="raw" cache="none" discard="unmap"/>
-      <source file="/run/media/sotig/vmData/brive-disk.img"/>
+      <source file="/mnt/vmData/brive-new.img"/>
       <target dev="sdf" bus="sata"/>
       <boot order="1"/>
       <address type="drive" controller="0" bus="0" target="0" unit="5"/>
@@ -188,8 +189,11 @@
     <controller type="sata" index="1">
       <address type="pci" domain="0x0000" bus="0x10" slot="0x01" function="0x0"/>
     </controller>
+    <controller type="scsi" index="0" model="virtio-scsi">
+      <address type="pci" domain="0x0000" bus="0x09" slot="0x00" function="0x0"/>
+    </controller>
     <interface type="bridge">
-      <mac address="52:54:00:0e:8d:99"/>
+      <mac address="52:54:00:97:ab:fe"/>
       <source bridge="virbr0"/>
       <model type="virtio"/>
       <address type="pci" domain="0x0000" bus="0x07" slot="0x00" function="0x0"/>
@@ -236,6 +240,7 @@
       </source>
       <address type="pci" domain="0x0000" bus="0x08" slot="0x00" function="0x0"/>
     </hostdev>
+    <watchdog model="itco" action="reset"/>
     <memballoon model="virtio">
       <address type="pci" domain="0x0000" bus="0x06" slot="0x00" function="0x0"/>
     </memballoon>
@@ -252,6 +257,8 @@
     <qemu:arg value="-object"/>
     <qemu:arg value="input-linux,id=kbd3,evdev=/dev/input/by-id/usb-SteelSeries_SteelSeries_Rival_310_eSports_Mouse-if02-event-kbd,grab_all=on,repeat=on"/>
     <qemu:env name="QEMU_AUDIO_TIMER_PERIOD" value="0"/>
+    <qemu:env name="QEMU_AUDIO_DRV" value="pa"/>
   </qemu:commandline>
 </domain>
+
 ```  
