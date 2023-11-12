@@ -102,3 +102,31 @@ Apply grub configuration
 ```sh
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
+## 5950X Configuration
+
+![Lstopo5950X](img/lstopo-5950x.png)
+
+### Guest cores
+ 
+`0-7, 8-11, 24-27`
+
+---
+
+`0,16,1,17,2,18,3,19,4,20,5,21,6,22,7,23,8,24,9,25,10,26,11,27`
+
+---
+
+### Emulation cores
+
+`12,28,13,29`
+
+### Io threads
+
+iothreadpin1: `12,28` 
+
+iothreadpin2: `13,29`
+
+### Host cores
+
+`12,28,13,29,14,30,15,31`

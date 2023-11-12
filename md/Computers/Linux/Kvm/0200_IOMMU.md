@@ -25,11 +25,16 @@ IOMMU Group 25:
 The GPU you wish to passthrough must not share a group with any other device.
 But this will not likely be the case. In that case you have to ACS patch the Kernel 
 
+
+
 ## ACS Kernel Patch
-```sh
+!!! info
+    Install the `linux-zen` kernel instead and add `pcie_acs_override=downstream,multifunction in the startup parameters`
+    
+<!-- ```sh
 mkdir build && cd build
 git clone https://aur.archlinux.org/linux-vfio.git
 makepkg -si
 # or
 makepkg -si --skippgpcheck
-```
+``` -->

@@ -1,5 +1,9 @@
 # Switch keyboard and mouse
  
+[Download zip file](downloads/left-6x6.stl)
+
+or clone from git
+
 ```sh
 git clone https://github.com/pavolelsig/evdev_helper.git
 cd evdev_helper

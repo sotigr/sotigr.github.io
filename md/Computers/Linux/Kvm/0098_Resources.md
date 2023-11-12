@@ -22,23 +22,3 @@ Optiomization guide
 ## Best resource
 [https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF)
 
-
-## Pacman
-
-```sh
-sudo pacman -Sy autoconf
-sudo pacman -Sy automake
-sudo pacman -Sy bin86
-sudo pacman -Sy bison
-sudo pacman -Sy csup
-sudo pacman -Sy diffutils
-sudo pacman -Sy ed
-sudo pacman -Sy fakeroot
-sudo pacman -Sy flex
-sudo pacman -Sy gcc
-sudo pacman -Sy libtool
-sudo pacman -Sy m4
-sudo pacman -Sy patch 
-sudo pacman -Sy make 
-sudo pacman -Sy pkgconfig
-```

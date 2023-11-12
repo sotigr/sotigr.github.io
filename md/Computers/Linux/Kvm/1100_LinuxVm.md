@@ -2,12 +2,12 @@
 
 ## Config
 ```xml
- <domain xmlns:qemu="http://libvirt.org/schemas/domain/qemu/1.0" type="kvm">
-  <name>brive</name>
-  <uuid>93f78f12-0745-4280-b812-524420ce0a9f</uuid>
+<domain xmlns:qemu="http://libvirt.org/schemas/domain/qemu/1.0" type="kvm">
+  <name>archeiothiki</name>
+  <uuid>bbe340c9-0b15-4c5f-922e-8d536c923fc5</uuid>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
-      <libosinfo:os id="http://fedoraproject.org/fedora/unknown"/>
+      <libosinfo:os id="http://archlinux.org/archlinux/rolling"/>
     </libosinfo:libosinfo>
   </metadata>
   <memory unit="KiB">16777216</memory>
@@ -15,39 +15,46 @@
   <memoryBacking>
     <hugepages/>
   </memoryBacking>
-  <vcpu placement="static">10</vcpu>
-  <iothreads>1</iothreads>
+  <vcpu placement="static">24</vcpu>
+  <iothreads>2</iothreads>
   <cputune>
     <vcpupin vcpu="0" cpuset="0"/>
-    <vcpupin vcpu="1" cpuset="6"/>
+    <vcpupin vcpu="1" cpuset="16"/>
     <vcpupin vcpu="2" cpuset="1"/>
-    <vcpupin vcpu="3" cpuset="7"/>
+    <vcpupin vcpu="3" cpuset="17"/>
     <vcpupin vcpu="4" cpuset="2"/>
-    <vcpupin vcpu="5" cpuset="8"/>
+    <vcpupin vcpu="5" cpuset="18"/>
     <vcpupin vcpu="6" cpuset="3"/>
-    <vcpupin vcpu="7" cpuset="9"/>
+    <vcpupin vcpu="7" cpuset="19"/>
     <vcpupin vcpu="8" cpuset="4"/>
-    <vcpupin vcpu="9" cpuset="10"/>
-    <emulatorpin cpuset="5,11"/>
-    <iothreadpin iothread="1" cpuset="5,11"/>
+    <vcpupin vcpu="9" cpuset="20"/>
+    <vcpupin vcpu="10" cpuset="5"/>
+    <vcpupin vcpu="11" cpuset="21"/>
+    <vcpupin vcpu="12" cpuset="6"/>
+    <vcpupin vcpu="13" cpuset="22"/>
+    <vcpupin vcpu="14" cpuset="7"/>
+    <vcpupin vcpu="15" cpuset="23"/>
+    <vcpupin vcpu="16" cpuset="8"/>
+    <vcpupin vcpu="17" cpuset="24"/>
+    <vcpupin vcpu="18" cpuset="9"/>
+    <vcpupin vcpu="19" cpuset="25"/>
+    <vcpupin vcpu="20" cpuset="10"/>
+    <vcpupin vcpu="21" cpuset="26"/>
+    <vcpupin vcpu="22" cpuset="11"/>
+    <vcpupin vcpu="23" cpuset="27"/>
+    <emulatorpin cpuset="12-13,28-29"/>
+    <iothreadpin iothread="1" cpuset="12,28"/>
+    <iothreadpin iothread="2" cpuset="13,29"/>
   </cputune>
-  <sysinfo type="smbios">
-    <bios>
-      <entry name="vendor">American Megatrends Inc.</entry>
-      <entry name="version">3.50</entry>
-    </bios>
-    <system>
-      <entry name="manufacturer">Micro-Star International Co., Ltd</entry>
-      <entry name="product">MS-7C02</entry>
-      <entry name="version">1.0</entry>
-      <entry name="serial">To be filled by O.E.M.</entry>
-      <entry name="family">To be filled by O.E.M.</entry>
-    </system>
-  </sysinfo>
-  <os>
+  <os firmware="efi">
     <type arch="x86_64" machine="pc-q35-7.1">hvm</type>
-    <loader readonly="yes" type="pflash">/usr/share/edk2-ovmf/x64/OVMF_CODE.secboot.fd</loader>
-    <nvram>/var/lib/libvirt/qemu/nvram/brive_VARS.fd</nvram>
+    <firmware>
+      <feature enabled="no" name="enrolled-keys"/>
+      <feature enabled="yes" name="secure-boot"/>
+    </firmware>
+    <loader readonly="yes" secure="yes" type="pflash">/usr/share/edk2/x64/OVMF_CODE.secboot.fd</loader>
+    <nvram template="/usr/share/edk2/x64/OVMF_VARS.fd">/var/lib/libvirt/qemu/nvram/archeiothiki_VARS.fd</nvram>
+    <boot dev="hd"/>
     <bootmenu enable="no"/>
     <smbios mode="host"/>
   </os>
@@ -66,10 +73,11 @@
       <frequencies state="on"/>
     </hyperv>
     <vmport state="off"/>
+    <smm state="on"/>
     <ioapic driver="kvm"/>
   </features>
   <cpu mode="host-passthrough" check="none" migratable="on">
-    <topology sockets="1" dies="1" cores="5" threads="2"/>
+    <topology sockets="1" dies="1" cores="12" threads="2"/>
     <feature policy="require" name="topoext"/>
     <feature policy="require" name="invtsc"/>
     <feature policy="disable" name="vmx"/>
@@ -94,11 +102,10 @@
   <devices>
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type="file" device="disk">
-      <driver name="qemu" type="raw" cache="none" discard="unmap"/>
-      <source file="/mnt/vmData/brive-new.img"/>
-      <target dev="sdf" bus="sata"/>
-      <boot order="1"/>
-      <address type="drive" controller="0" bus="0" target="0" unit="5"/>
+      <driver name="qemu" type="raw"/>
+      <source file="/mnt/284eeefc-ce04-4620-9bc9-67879b788264/archeiothiki.img"/>
+      <target dev="sda" bus="sata"/>
+      <address type="drive" controller="0" bus="0" target="0" unit="0"/>
     </disk>
     <controller type="usb" index="0" model="qemu-xhci" ports="15">
       <address type="pci" domain="0x0000" bus="0x02" slot="0x00" function="0x0"/>
@@ -174,23 +181,14 @@
       <target chassis="14" port="0x1d"/>
       <address type="pci" domain="0x0000" bus="0x00" slot="0x03" function="0x5"/>
     </controller>
-    <controller type="pci" index="15" model="pcie-root-port">
-      <model name="pcie-root-port"/>
-      <target chassis="15" port="0x1e"/>
-      <address type="pci" domain="0x0000" bus="0x00" slot="0x03" function="0x6"/>
-    </controller>
-    <controller type="pci" index="16" model="pcie-to-pci-bridge">
-      <model name="pcie-pci-bridge"/>
-      <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
-    </controller>
     <controller type="sata" index="0">
       <address type="pci" domain="0x0000" bus="0x00" slot="0x1f" function="0x2"/>
     </controller>
-    <controller type="sata" index="1">
-      <address type="pci" domain="0x0000" bus="0x10" slot="0x01" function="0x0"/>
+    <controller type="virtio-serial" index="0">
+      <address type="pci" domain="0x0000" bus="0x03" slot="0x00" function="0x0"/>
     </controller>
     <controller type="scsi" index="0" model="virtio-scsi">
-      <address type="pci" domain="0x0000" bus="0x09" slot="0x00" function="0x0"/>
+      <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
     </controller>
     <interface type="bridge">
       <mac address="52:54:00:97:ab:fe"/>
@@ -198,67 +196,45 @@
       <model type="virtio"/>
       <address type="pci" domain="0x0000" bus="0x07" slot="0x00" function="0x0"/>
     </interface>
-    <serial type="pty">
-      <target type="isa-serial" port="0">
-        <model name="isa-serial"/>
-      </target>
-    </serial>
-    <console type="pty">
-      <target type="serial" port="0"/>
-    </console>
     <input type="mouse" bus="ps2"/>
     <input type="keyboard" bus="ps2"/>
-    <input type="tablet" bus="virtio">
-      <address type="pci" domain="0x0000" bus="0x03" slot="0x00" function="0x0"/>
-    </input>
-    <graphics type="spice">
-      <listen type="none"/>
-      <image compression="off"/>
-    </graphics>
-    <sound model="ich9">
-      <address type="pci" domain="0x0000" bus="0x00" slot="0x1b" function="0x0"/>
-    </sound>
-    <audio id="1" type="spice"/>
-    <video>
-      <model type="none"/>
-    </video>
+    <audio id="1" type="none"/>
     <hostdev mode="subsystem" type="pci" managed="yes">
       <source>
-        <address domain="0x0000" bus="0x25" slot="0x00" function="0x0"/>
+        <address domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
       </source>
       <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
     </hostdev>
     <hostdev mode="subsystem" type="pci" managed="yes">
       <source>
-        <address domain="0x0000" bus="0x25" slot="0x00" function="0x1"/>
-      </source>
-      <address type="pci" domain="0x0000" bus="0x05" slot="0x00" function="0x0"/>
-    </hostdev>
-    <hostdev mode="subsystem" type="pci" managed="yes">
-      <source>
-        <address domain="0x0000" bus="0x2a" slot="0x00" function="0x3"/>
+        <address domain="0x0000" bus="0x04" slot="0x00" function="0x1"/>
       </source>
       <address type="pci" domain="0x0000" bus="0x08" slot="0x00" function="0x0"/>
     </hostdev>
+    <hostdev mode="subsystem" type="pci" managed="yes">
+      <source>
+        <address domain="0x0000" bus="0x2f" slot="0x00" function="0x3"/>
+      </source>
+      <address type="pci" domain="0x0000" bus="0x09" slot="0x00" function="0x0"/>
+    </hostdev>
     <watchdog model="itco" action="reset"/>
     <memballoon model="virtio">
-      <address type="pci" domain="0x0000" bus="0x06" slot="0x00" function="0x0"/>
+      <address type="pci" domain="0x0000" bus="0x05" slot="0x00" function="0x0"/>
     </memballoon>
+    <rng model="virtio">
+      <backend model="random">/dev/urandom</backend>
+      <address type="pci" domain="0x0000" bus="0x06" slot="0x00" function="0x0"/>
+    </rng>
   </devices>
   <qemu:commandline>
     <qemu:arg value="-object"/>
-    <qemu:arg value="input-linux,id=kbd1,evdev=/dev/input/by-id/usb-Razer_Razer_BlackWidow-event-kbd,grab_all=on,repeat=on"/>
+    <qemu:arg value="input-linux,id=mouse1,evdev=/dev/input/by-id/usb-SteelSeries_SteelSeries_Rival_310_eSports_Mouse-if01-event-mouse"/>
     <qemu:arg value="-object"/>
-    <qemu:arg value="input-linux,id=kbd2,evdev=/dev/input/by-id/usb-Razer_Razer_BlackWidow-if01-event-kbd,grab_all=on,repeat=on"/>
+    <qemu:arg value="input-linux,id=kbd1,evdev=/dev/input/by-id/usb-SteelSeries_SteelSeries_Rival_310_eSports_Mouse-if02-event-kbd,grab_all=on,repeat=on"/>
     <qemu:arg value="-object"/>
-    <qemu:arg value="input-linux,id=mouse1,evdev=/dev/input/by-id/usb-Razer_Razer_BlackWidow-if02-event-mouse"/>
+    <qemu:arg value="input-linux,id=kbd2,evdev=/dev/input/by-id/usb-tshort_Dactyl-Manuform__6x6_-event-kbd,grab_all=on,repeat=on"/>
     <qemu:arg value="-object"/>
-    <qemu:arg value="input-linux,id=mouse2,evdev=/dev/input/by-id/usb-SteelSeries_SteelSeries_Rival_310_eSports_Mouse-if01-event-mouse"/>
-    <qemu:arg value="-object"/>
-    <qemu:arg value="input-linux,id=kbd3,evdev=/dev/input/by-id/usb-SteelSeries_SteelSeries_Rival_310_eSports_Mouse-if02-event-kbd,grab_all=on,repeat=on"/>
-    <qemu:env name="QEMU_AUDIO_TIMER_PERIOD" value="0"/>
-    <qemu:env name="QEMU_AUDIO_DRV" value="pa"/>
+    <qemu:arg value="input-linux,id=mouse2,evdev=/dev/input/by-id/usb-tshort_Dactyl-Manuform__6x6_-if01-event-mouse"/>
   </qemu:commandline>
-</domain>
-
+</domain>  
 ```  

@@ -12,12 +12,7 @@ sudo pacman -S archlinux-keyring
 sudo pacman -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat
 sudo pacman -S ebtables iptables
 ```
- 
-## Install libguestfs
-libguestfs is a set of tools used to access and modify virtual machine (VM) disk images.
-```sh
-sudo pacman -S libguestfs
-```
+
 
 ## Start libvirt
 ```sh
@@ -40,4 +35,10 @@ unix_sock_rw_perms = "0770"
 sudo usermod -a -G libvirt $(whoami)
 newgrp libvirt
 sudo systemctl restart libvirtd.service
+```
+ 
+## Autostart default network
+```sh
+sudo virsh net-start default
+sudo virsh net-autostart --network default  
 ```

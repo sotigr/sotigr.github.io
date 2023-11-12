@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.72749a73.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a5377069.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -221,14 +221,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
+          
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
@@ -257,14 +259,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
         
+          
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
             
   
@@ -291,14 +295,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
         
+          
           <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
             
   
@@ -375,14 +381,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" checked>
         
+          
           <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
             
   
@@ -432,26 +440,6 @@
   
   <span class="md-ellipsis">
     Initial Setup
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../0100_Specs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Computer specs
   </span>
   
 
@@ -667,14 +655,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
         
+          
           <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
             
   
@@ -744,14 +734,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
+          
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
@@ -778,14 +770,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
         
+          
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
             
   
@@ -812,14 +806,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
         
+          
           <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
             
   
@@ -935,6 +931,11 @@
 
 
 <h1 id="isolate-gpu">Isolate GPU</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can use the <a href="https://aur.archlinux.org/packages/gpu-passthrough-manager">gpu-passthrough-manager</a><code>(aur)</code> for a faster configuration</p>
+<p>The following is a TLDR of <a href="https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF">this</a> use it if you run into problems</p>
+</div>
 <p>Assuming that the IOMMU groups are setup correctly you can now isolate the GPU you wish to passthrough.</p>
 <h1 id="get-the-gpu-device-ids">Get the GPU device ids</h1>
 <p>List the IOMMU groups
@@ -959,14 +960,13 @@
 <ul>
 <li>amd_iommu=on</li>
 <li>iommu=pt</li>
-<li>rd.driver.pre=vfio-pci</li>
-<li>transparent_hugepage=never <code>faster memory access for the VM</code></li>
-<li>vfio pci.ids=10de:1b06,10de:10ef <code>add your ids accordingly</code></li>
+<li>rd.driver.pre=vfio-pci </li>
+<li>vfio-pci.ids=10de:1b06,10de:10ef <code>add your ids accordingly</code></li>
 <li>pcie_acs_override=downstream,multifunction <code>must add if you ACS patched your kernel</code></li>
 </ul>
 <p>My file looks like this:</p>
 <div class="highlight"><span class="filename">/etc/default/grub</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>...
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash apparmor=1 security=apparmor udev.log_priority=3 amd_iommu=on iommu=pt transparent_hugepage=never rd.driver.pre=vfio-pci vfio pci.ids=10de:1b06,10de:10ef pcie_acs_override=downstream,multifunction&quot;
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash apparmor=1 security=apparmor udev.log_priority=3 amd_iommu=on iommu=pt transparent_hugepage=never rd.driver.pre=vfio-pci vfio-pci.ids=10de:1b06,10de:10ef pcie_acs_override=downstream,multifunction&quot;
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>...
 </code></pre></div>
 <p>Apply grub configuration
@@ -1009,10 +1009,11 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy"], "search": "../../../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
     
   </body>
