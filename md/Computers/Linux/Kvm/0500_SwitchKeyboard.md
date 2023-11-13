@@ -1,6 +1,6 @@
 # Switch keyboard and mouse
  
-[Download zip file](downloads/left-6x6.stl)
+[Download zip file](static/evdev_helper.zip)
 
 or clone from git
 
