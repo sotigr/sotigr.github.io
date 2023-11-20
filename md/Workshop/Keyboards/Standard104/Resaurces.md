@@ -8,6 +8,9 @@
 ## 3D files boutsis
 [Download](static/3dfiles-boutsis.zip)
 
+## 3D SICK files boutsis
+[Download](static/sick%20custom.zip)
+
 
 ## Keymap 
 ![Lstopo5950X](static/keymap.jpg)
