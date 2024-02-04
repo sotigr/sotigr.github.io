@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../category/dev-ops/" rel="prev"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.7" name="generator"/>
+<title>2024 - Sotig's rumblings</title>
+<link href="../../../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+ <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="amber" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#2024">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Sotig's rumblings" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Sotig's rumblings">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Sotig's rumblings
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              2024
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Sotig's rumblings" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Sotig's rumblings">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Sotig's rumblings
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    Welcome to my little site
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Computers
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Computers
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Linux
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Gaming
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+            Gaming
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Gaming/00_Dependencies/">
+<span class="md-ellipsis">
+    Dependencies
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Gaming/10_Configuration/">
+<span class="md-ellipsis">
+    Configuration
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Gaming/11_Fixes_Workarounds/">
+<span class="md-ellipsis">
+    Fixes and Workarounds
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Kvm
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_1_2">
+<span class="md-nav__icon md-icon"></span>
+            Kvm
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Kvm/0098_Resources/">
+<span class="md-ellipsis">
+    Resources
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Kvm/0099_Initial_Setup/">
+<span class="md-ellipsis">
+    Initial Setup
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Kvm/0200_IOMMU/">
+<span class="md-ellipsis">
+    IOMMU
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Kvm/0300_Isolate_GPU/">
+<span class="md-ellipsis">
+    Isolate GPU
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Kvm/0400_Cpu_Pinning/">
+<span class="md-ellipsis">
+    Cpu pinning and isolation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Kvm/0500_SwitchKeyboard/">
+<span class="md-ellipsis">
+    Switch keyboard and mouse
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Kvm/0600_Fix_Audio_Latency%20copy/">
+<span class="md-ellipsis">
+    Fix audio latency
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Kvm/0700_Virtual_Disks/">
+<span class="md-ellipsis">
+    RAW Virtual Disks
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Kvm/0800_Hugepages/">
+<span class="md-ellipsis">
+    Hugepages memory optimization
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Kvm/1000_Win10-11Vm/">
+<span class="md-ellipsis">
+    Win 10-11 Vm config
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Kvm/1100_LinuxVm/">
+<span class="md-ellipsis">
+    Linux Vm config
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Packages
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_1_3">
+<span class="md-nav__icon md-icon"></span>
+            Packages
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Packages/PGP-Keys/">
+<span class="md-ellipsis">
+    PGP Keys
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1_4" id="__nav_2_1_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Servers
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_1_4">
+<span class="md-nav__icon md-icon"></span>
+            Servers
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Computers/Linux/Servers/pointtopoint/">
+<span class="md-ellipsis">
+    Pointtopoint
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Workshop
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Workshop
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Keyboards
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+            Keyboards
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Dactyl keynoard
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_1">
+<span class="md-nav__icon md-icon"></span>
+            Dactyl keynoard
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Workshop/Keyboards/Dactyl%20keynoard/info/">
+<span class="md-ellipsis">
+    The Dactyl-ManuForm Keyboard
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Workshop/Keyboards/Dactyl%20keynoard/parts/">
+<span class="md-ellipsis">
+    Parts
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Standard104
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_2">
+<span class="md-nav__icon md-icon"></span>
+            Standard104
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Workshop/Keyboards/Standard104/Resaurces/">
+<span class="md-ellipsis">
+    Resaurces
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Blog
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    Blog
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Archive
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    2024
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Categories
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../category/dev-ops/">
+<span class="md-ellipsis">
+    Dev Ops
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<div class="md-content__inner">
+<header class="md-typeset">
+<h1 id="2024">2024</h1>
+</header>
+<article class="md-post md-post--excerpt">
+<header class="md-post__header">
+<nav class="md-post__authors md-typeset">
+<span class="md-author">
+<img alt="Sotiris Papaioannou" src="/blog/avatars/sotig.png"/>
+</span>
+</nav>
+<div class="md-post__meta md-meta">
+<ul class="md-meta__list">
+<li class="md-meta__item">
+<time datetime="2024-02-03 00:00:00">February 3, 2024</time></li>
+<li class="md-meta__item">
+            in
+            
+              <a class="md-meta__link" href="../../category/dev-ops/">Dev Ops</a></li>
+<li class="md-meta__item">
+            
+              5 min read
+            
+          </li>
+</ul>
+</div>
+</header>
+<div class="md-post__content md-typeset">
+<h2 id="isp-nat-bypass-to-expose-home-server-to-the-web"><a class="toclink" href="../../2024/02/03/isp-nat-bypass-to-expose-home-server-to-the-web/">ISP NAT BYPASS to expose home server to the web</a></h2>
+<h3 id="my-isp"><a class="toclink" href="../../2024/02/03/isp-nat-bypass-to-expose-home-server-to-the-web/#my-isp">My ISP</a></h3>
+<p>For years now my ISP does not allow me to <a href="https://en.wikipedia.org/wiki/Port_forwarding">Port Forward</a> my server. Some years ago I wanted to host a game server. Then I noticed that whatever I did, I could not access my server from any outside network. After trying everything I could find on the Internet and double checking everything like firewall rule on the server and router, I came to the conclusion that my service provider is probably blocking port forwarding somehow. I later confirmed that in my country this is a common practice with some ISPs. </p>
+<p>I decided to contact my ISP to figure out what could be done to resolve my issue. After a very long call, traversing through support ranks, arguing and verbal fighting they said that they would resolve the issue and port forwarding will be available.</p>
+<p>I was very happy that I could finally have my server up, even though I had to fight support. And things were fine for the next year, but as you can imagine this didn't last long.</p>
+<p>It happened again. My server was inaccessible and I had to contact my ISP one more time. However, this presented a challenge for me. I wanted to see if there was anything that could be done to bypass all this and have things work without worrying about what my ISP decides their network will look like.</p>
+<h3 id="the-idea"><a class="toclink" href="../../2024/02/03/isp-nat-bypass-to-expose-home-server-to-the-web/#the-idea">The idea</a></h3>
+<p>I thought if I could somehow rent a VPS(Virtual Private Server) in a data center and use its public ip as a proxy for my server.</p>
+<pre class="mermaid"><code>graph LR;
+    Computer--&gt;VPS--&gt;Home-Server;
+</code></pre>
+<p>However the same problem persists for this solution because the VPS see the home server. </p>
+<h3 id="the-vpn"><a class="toclink" href="../../2024/02/03/isp-nat-bypass-to-expose-home-server-to-the-web/#the-vpn">The VPN</a></h3>
+<p>The trick is to use a point to point VPN to connect the VPS with the home server. There are three popular <a href="https://en.wikipedia.org/wiki/Virtual_private_network#Types">types</a> of vpn. For our purposes we will use a site to site vpn, so as to merge the VPS and home server networks together. That way we will create a way for the two server to communicate through this network and bypass the ISPs NAT that ultimately blocks the ports.</p>
+<p>This system will look something like this:
+<pre class="mermaid"><code>graph LR;
+    Computer--&gt;VPS--&gt;VPN;
+    VPN--&gt;Home-Server
+    Home-Server--&gt;VPN
+    VPN--&gt;VPS
+</code></pre></p>
+<p>There are many ways to implement this. In most cases its a either a paid feature or a paid service. The free alternative I found is WireGuard VPN and a repo with a bash script that does everything automatically. <a href="https://github.com/angristan/wireguard-install">https://github.com/angristan/wireguard-install</a></p>
+<h3 id="setup-the-vpn"><a class="toclink" href="../../2024/02/03/isp-nat-bypass-to-expose-home-server-to-the-web/#setup-the-vpn">Setup the VPN</a></h3>
+<p>First lets connect to the VPS and install the vpn server.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>curl<span class="w"> </span>-O<span class="w"> </span>https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>wireguard-install.sh
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>./wireguard-install.sh
+</code></pre></div>
+<p>Follow the setup process and create a user. For more information read <a href="https://github.com/angristan/wireguard-install/blob/master/README.md">here</a></p>
+<p>Lets say you created a client named myclient. You should see <code>wg0-client-myclient.conf</code> created in your user home directory.</p>
+<p>If you <code>cat</code> this file you should see something like this
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>[Interface]
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>PrivateKey = *******************
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>Address = 10.66.66.2/32,fd42:42:42::3/128
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>DNS = 1.1.1.1,1.0.0.1
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>[Peer]
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a>PublicKey = *******************
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>PresharedKey = *******************
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a>Endpoint = xxx.xxx.xxx.xxx:51129
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a>AllowedIPs = 0.0.0.0/0,::/0
+</code></pre></div></p>
+<p>Now we can use this file to connect the home server to the VPS. First connect to the home server and install <code>wireguard</code> and make sure the <code>wg-quick</code> command is available. After that copy the <code>wg0-client-myclient.conf</code> we got from the VPS and copy it in <code>/etc/wireguard/wg0.conf</code></p>
+<p>Enable IP forwarding
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'net.ipv4.ip_forward=1'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/sysctl.conf<span class="w"> </span>
+</code></pre></div></p>
+<p>Finally run:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>wg-quick<span class="w"> </span>up<span class="w"> </span>wg0
+</code></pre></div>
+<p>and hopefully the VPN should be ready. Now to make it run at startup lets add it to crontab.</p>
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>sudo<span class="w"> </span>crontab<span class="w"> </span>-e
+</code></pre></div>
+and add at the bottom</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>@reboot<span class="w"> </span>wg-quick<span class="w"> </span>up<span class="w"> </span>wg0
+</code></pre></div>
+<p>Now the two server networks are connected and both can see each other. Lets test the connectivity by using the ping command. The VSP server will have the <code>10.66.66.1</code> ip with the default configuration and the home server <code>10.66.66.2</code> unless you configured it differently.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># From the home server</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>ping<span class="w"> </span><span class="m">10</span>.66.66.1
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="c1"># Result</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>PING<span class="w"> </span><span class="m">10</span>.66.66.1<span class="w"> </span><span class="o">(</span><span class="m">10</span>.66.66.1<span class="o">)</span><span class="w"> </span><span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span><span class="w"> </span>bytes<span class="w"> </span>of<span class="w"> </span>data.
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">10</span>.66.66.1:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">8</span>.65<span class="w"> </span>ms
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">10</span>.66.66.1:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">10</span>.2<span class="w"> </span>ms
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">10</span>.66.66.1:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">9</span>.97<span class="w"> </span>ms
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="c1"># From the VPS form me the ip is 10.66.66.3</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>ping<span class="w"> </span><span class="m">10</span>.66.66.3
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="c1"># Result</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>PING<span class="w"> </span><span class="m">10</span>.66.66.3<span class="w"> </span><span class="o">(</span><span class="m">10</span>.66.66.3<span class="o">)</span><span class="w"> </span><span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span><span class="w"> </span>bytes<span class="w"> </span>of<span class="w"> </span>data.
+<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">10</span>.66.66.3:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">10</span>.1<span class="w"> </span>ms
+<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">10</span>.66.66.3:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">8</span>.98<span class="w"> </span>ms
+<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">10</span>.66.66.3:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">10</span>.8<span class="w"> </span>ms
+</code></pre></div>
+<p>So now the network looks like this:</p>
+<pre class="mermaid"><code>graph LR;
+    VPS:10.66.66.1--&gt;Home-Server:10.66.66.2; 
+    Home-Server:10.66.66.2--&gt;VPS:10.66.66.1; 
+</code></pre>
+<h3 id="vpn-troubleshooting"><a class="toclink" href="../../2024/02/03/isp-nat-bypass-to-expose-home-server-to-the-web/#vpn-troubleshooting">VPN troubleshooting</a></h3>
+<p>If ipv6 is not supported in your system, when for example when running the vpn client in a docker container you can edit the wg0.conf to resolve the issue. Just remove the ipv6 definitions separated by a comma, resulting to a configuration like this:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>[Interface]
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>PrivateKey = *******************
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>Address = 10.66.66.2/32
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>DNS = 1.1.1.1,1.0.0.1
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a>[Peer]
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a>PublicKey = *******************
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a>PresharedKey = *******************
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a>Endpoint = xxx.xxx.xxx.xxx:51129
+<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a>AllowedIPs = 0.0.0.0/0
+</code></pre></div>
+<p>Furthermore docker requires to also use the <code>--cap-add=NET_ADMIN</code> argument when running the container.</p>
+<h3 id="make-the-home-server-accessible"><a class="toclink" href="../../2024/02/03/isp-nat-bypass-to-expose-home-server-to-the-web/#make-the-home-server-accessible">Make the Home Server accessible</a></h3>
+<p>This is it now we should be able to reroute all network request for a given port to our server by using the <code>socat</code> command.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>socat<span class="w"> </span>TCP-LISTEN:80,fork<span class="w"> </span>TCP:10.66.66.2:80
+</code></pre></div>
+<p>That's it now the VPS port 80 should show the home server's port 80 and we have successfully bypassed the ISP.</p>
+<p>Add the <code>socat</code> command to crontab starting with <code>@reboot</code> to make it permanent.</p>
+<h3 id="containers"><a class="toclink" href="../../2024/02/03/isp-nat-bypass-to-expose-home-server-to-the-web/#containers">Containers</a></h3>
+<p>I run all my apps in containers and I have created a docker image that sets up the wireguard client.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:20.04</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="k">RUN</span><span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="k">RUN</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>wireguard<span class="w"> </span>iproute2<span class="w"> </span>openresolv<span class="w"> </span>iputils-ping<span class="w"> </span>-y<span class="w"> </span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'net.ipv4.ip_forward=1'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/sysctl.conf
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="k">ENTRYPOINT</span><span class="w"> </span>wg-quick<span class="w"> </span>up<span class="w"> </span>wg0<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ping<span class="w"> </span><span class="m">10</span>.66.66.1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">10</span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w"> </span>
+</code></pre></div>
+<p>This particular dockerfile is designed to run as a sidecar container in a kubernetes pod but by configuring the entrypoint it can be used in any environment</p>
+<h3 id="final-thoughts"><a class="toclink" href="../../2024/02/03/isp-nat-bypass-to-expose-home-server-to-the-web/#final-thoughts">Final thoughts</a></h3>
+<p>While this is a very complicated way to essentially enable port forwarding, it has some benefit even if port forwarding is an available option. One benefit is that you do not expose your home ip address and network with the rest of the internet, thus protecting your privacy. All outsiders can see is the location of the data center event though the server is at home.</p>
+<p>For me another benefit is that for the low cost of 5 euros per month, I get a static ip on top of the added security mentioned above. Because of course my provider changes 10 euro for the benefit of having a static ip. I used to pay for a dynamic dns service but now it is not needed anymore.</p>
+<nav class="md-post__action">
+<a href="../../2024/02/03/isp-nat-bypass-to-expose-home-server-to-the-web/">
+        Continue reading
+      </a>
+</nav>
+</div>
+</article>
+<nav class="md-pagination">
+</nav>
+</div>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.caa56a14.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+window.mermaidConfig = {default: {
+    startOnLoad: false
+}};</script><script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
