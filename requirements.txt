@@ -1,0 +1,5 @@
+mkdocs 
+mkdocs-material
+Pygments
+mkdocs-mermaid2-plugin
+mkdocs-glightbox
