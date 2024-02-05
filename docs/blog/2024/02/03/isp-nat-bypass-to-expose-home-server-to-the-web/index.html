@@ -5,6 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Nullam urna elit, malesuada eget finibus ut, ac tortor." name="description"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.7" name="generator"/>
 <title>ISP NAT BYPASS to expose home server to the web - Sotig's rumblings</title>
@@ -516,9 +517,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#the-vpn">
+<a class="md-nav__link" href="#using-a-vpn">
 <span class="md-ellipsis">
-      The VPN
+      Using a VPN
     </span>
 </a>
 </li>
@@ -639,17 +640,18 @@
 <h1 id="isp-nat-bypass-to-expose-home-server-to-the-web">ISP NAT BYPASS to expose home server to the web</h1>
 <h2 id="my-isp">My ISP</h2>
 <p>For years now my ISP does not allow me to <a href="https://en.wikipedia.org/wiki/Port_forwarding">Port Forward</a> my server. Some years ago I wanted to host a game server. Then I noticed that whatever I did, I could not access my server from any outside network. After trying everything I could find on the Internet and double checking everything like firewall rule on the server and router, I came to the conclusion that my service provider is probably blocking port forwarding somehow. I later confirmed that in my country this is a common practice with some ISPs. </p>
-<p>I decided to contact my ISP to figure out what could be done to resolve my issue. After a very long call, traversing through support ranks, arguing and verbal fighting they said that they would resolve the issue and port forwarding will be available.</p>
-<p>I was very happy that I could finally have my server up, even though I had to fight support. And things were fine for the next year, but as you can imagine this didn't last long.</p>
-<p>It happened again. My server was inaccessible and I had to contact my ISP one more time. However, this presented a challenge for me. I wanted to see if there was anything that could be done to bypass all this and have things work without worrying about what my ISP decides their network will look like.</p>
+<!-- more -->
+<p>I decided to contact my ISP to figure out what could be done to resolve my issue. After a very long call, traversing through support ranks, arguing and verbally fighting them, they said that they would resolve the issue and port forwarding will be available.</p>
+<p>I was very happy that I could finally have my server up, even though I had to fight with support. And things were fine for the next year, but as you can imagine this didn't last long.</p>
+<p>Well, it happened again. My server was inaccessible and I had to contact my ISP one more time. However, this presented an opportunity to challenge myself. I wanted to see if there was anything that could be done to bypass all this and have things work without worrying about what my ISP decides their network will look like.</p>
 <h2 id="the-idea">The idea</h2>
-<p>I thought if I could somehow rent a VPS(Virtual Private Server) in a data center and use its public ip as a proxy for my server.</p>
+<p>I thought if I could somehow rent a VPS(Virtual Private Server) in a data center and use its public ip as a proxy for my server I could redirect traffic from the VPS to my home server.</p>
 <pre class="mermaid"><code>graph LR;
     Computer--&gt;VPS--&gt;Home-Server;
 </code></pre>
-<p>However the same problem persists for this solution because the VPS see the home server. </p>
-<h2 id="the-vpn">The VPN</h2>
-<p>The trick is to use a point to point VPN to connect the VPS with the home server. There are three popular <a href="https://en.wikipedia.org/wiki/Virtual_private_network#Types">types</a> of vpn. For our purposes we will use a site to site vpn, so as to merge the VPS and home server networks together. That way we will create a way for the two server to communicate through this network and bypass the ISPs NAT that ultimately blocks the ports.</p>
+<p>However the same problem persists for this solution because the VPS cannot see the home server. </p>
+<h2 id="using-a-vpn">Using a VPN</h2>
+<p>The trick is to use a point to point VPN to connect the VPS with the home server. There are three popular <a href="https://en.wikipedia.org/wiki/Virtual_private_network#Types">types</a> of vpn. For our purposes we will use a site to site vpn, so as to merge the VPS and home server networks together. That way we will create a way for the two servers to communicate through this network and bypass the ISPs NAT that ultimately blocks the ports.</p>
 <p>This system will look something like this:
 <pre class="mermaid"><code>graph LR;
     Computer--&gt;VPS--&gt;VPN;
@@ -688,10 +690,10 @@
 <p>and hopefully the VPN should be ready. Now to make it run at startup lets add it to crontab.</p>
 <p><div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>sudo<span class="w"> </span>crontab<span class="w"> </span>-e
 </code></pre></div>
-and add at the bottom</p>
+and add at the bottom of the file</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>@reboot<span class="w"> </span>wg-quick<span class="w"> </span>up<span class="w"> </span>wg0
 </code></pre></div>
-<p>Now the two server networks are connected and both can see each other. Lets test the connectivity by using the ping command. The VSP server will have the <code>10.66.66.1</code> ip with the default configuration and the home server <code>10.66.66.2</code> unless you configured it differently.</p>
+<p>Now the two server networks are connected and both can see each other. Lets test the connectivity by using the <code>ping</code> command. The VPS will have the <code>10.66.66.1</code> ip with the default configuration and the home server <code>10.66.66.2</code> unless you configured it differently.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># From the home server</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>ping<span class="w"> </span><span class="m">10</span>.66.66.1
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>
@@ -716,7 +718,7 @@ and add at the bottom</p>
     Home-Server:10.66.66.2--&gt;VPS:10.66.66.1; 
 </code></pre>
 <h2 id="vpn-troubleshooting">VPN troubleshooting</h2>
-<p>If ipv6 is not supported in your system, when for example when running the vpn client in a docker container you can edit the wg0.conf to resolve the issue. Just remove the ipv6 definitions separated by a comma, resulting to a configuration like this:</p>
+<p>If ipv6 is not supported in your system, when for example running the vpn client in a docker container you can edit the <code>wg0.conf</code> to resolve the issue. Just remove the ipv6 definitions separated by a comma, resulting to a configuration like this:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>[Interface]
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>PrivateKey = *******************
 <a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>Address = 10.66.66.2/32
@@ -736,7 +738,7 @@ and add at the bottom</p>
 <p>That's it now the VPS port 80 should show the home server's port 80 and we have successfully bypassed the ISP.</p>
 <p>Add the <code>socat</code> command to crontab starting with <code>@reboot</code> to make it permanent.</p>
 <h2 id="containers">Containers</h2>
-<p>I run all my apps in containers and I have created a docker image that sets up the wireguard client.</p>
+<p>I run all my apps in containers, so I have created a docker image that sets up the wireguard client.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:20.04</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
 <a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="k">RUN</span><span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span>
@@ -748,8 +750,8 @@ and add at the bottom</p>
 </code></pre></div>
 <p>This particular dockerfile is designed to run as a sidecar container in a kubernetes pod but by configuring the entrypoint it can be used in any environment</p>
 <h2 id="final-thoughts">Final thoughts</h2>
-<p>While this is a very complicated way to essentially enable port forwarding, it has some benefit even if port forwarding is an available option. One benefit is that you do not expose your home ip address and network with the rest of the internet, thus protecting your privacy. All outsiders can see is the location of the data center event though the server is at home.</p>
-<p>For me another benefit is that for the low cost of 5 euros per month, I get a static ip on top of the added security mentioned above. Because of course my provider changes 10 euro for the benefit of having a static ip. I used to pay for a dynamic dns service but now it is not needed anymore.</p>
+<p>While this is a very complicated way to essentially enable port forwarding, it has some benefits even if port forwarding is an available option. One benefit is that you do not expose your home ip address and network to the rest of the internet, thus protecting your privacy. All outsiders can see is the location of the data center event though the server is at home.</p>
+<p>For me another benefit is that for 5 euros per month, I get a static ip on top of the added security mentioned above. My ISP charges 10 euros for a static ip.</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

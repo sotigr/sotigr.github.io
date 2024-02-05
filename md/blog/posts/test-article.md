@@ -5,15 +5,7 @@ authors:
 date: 2024-02-03 
 categories:
   - Dev Ops
-links:
-  - plugins/search.md
-  - insiders/index.md#how-to-become-a-sponsor
-  - Nested section:
-    - External link: https://example.com
-    - setup/setting-up-site-search.md
-tags:
-  - Foo
-  - Bar 
+description: Nullam urna elit, malesuada eget finibus ut, ac tortor.
 ---
 
 # ISP NAT BYPASS to expose home server to the web
@@ -21,26 +13,28 @@ tags:
 ## My ISP
 For years now my ISP does not allow me to [Port Forward](https://en.wikipedia.org/wiki/Port_forwarding) my server. Some years ago I wanted to host a game server. Then I noticed that whatever I did, I could not access my server from any outside network. After trying everything I could find on the Internet and double checking everything like firewall rule on the server and router, I came to the conclusion that my service provider is probably blocking port forwarding somehow. I later confirmed that in my country this is a common practice with some ISPs. 
 
-I decided to contact my ISP to figure out what could be done to resolve my issue. After a very long call, traversing through support ranks, arguing and verbal fighting they said that they would resolve the issue and port forwarding will be available.
+<!-- more -->
 
-I was very happy that I could finally have my server up, even though I had to fight support. And things were fine for the next year, but as you can imagine this didn't last long.
+I decided to contact my ISP to figure out what could be done to resolve my issue. After a very long call, traversing through support ranks, arguing and verbally fighting them, they said that they would resolve the issue and port forwarding will be available.
 
-It happened again. My server was inaccessible and I had to contact my ISP one more time. However, this presented a challenge for me. I wanted to see if there was anything that could be done to bypass all this and have things work without worrying about what my ISP decides their network will look like.
+I was very happy that I could finally have my server up, even though I had to fight with support. And things were fine for the next year, but as you can imagine this didn't last long.
+
+Well, it happened again. My server was inaccessible and I had to contact my ISP one more time. However, this presented an opportunity to challenge myself. I wanted to see if there was anything that could be done to bypass all this and have things work without worrying about what my ISP decides their network will look like.
 
 ## The idea
 
-I thought if I could somehow rent a VPS(Virtual Private Server) in a data center and use its public ip as a proxy for my server.
+I thought if I could somehow rent a VPS(Virtual Private Server) in a data center and use its public ip as a proxy for my server I could redirect traffic from the VPS to my home server.
 
 ```mermaid
 graph LR;
     Computer-->VPS-->Home-Server;
 ```
 
-However the same problem persists for this solution because the VPS see the home server. 
+However the same problem persists for this solution because the VPS cannot see the home server. 
 
-## The VPN
+## Using a VPN
 
-The trick is to use a point to point VPN to connect the VPS with the home server. There are three popular [types](https://en.wikipedia.org/wiki/Virtual_private_network#Types) of vpn. For our purposes we will use a site to site vpn, so as to merge the VPS and home server networks together. That way we will create a way for the two server to communicate through this network and bypass the ISPs NAT that ultimately blocks the ports.
+The trick is to use a point to point VPN to connect the VPS with the home server. There are three popular [types](https://en.wikipedia.org/wiki/Virtual_private_network#Types) of vpn. For our purposes we will use a site to site vpn, so as to merge the VPS and home server networks together. That way we will create a way for the two servers to communicate through this network and bypass the ISPs NAT that ultimately blocks the ports.
 
 This system will look something like this:
 ```mermaid
@@ -99,13 +93,13 @@ and hopefully the VPN should be ready. Now to make it run at startup lets add it
 ```sh
 sudo crontab -e
 ```
-and add at the bottom
+and add at the bottom of the file
 
 ```sh
 @reboot wg-quick up wg0
 ```
 
-Now the two server networks are connected and both can see each other. Lets test the connectivity by using the ping command. The VSP server will have the `10.66.66.1` ip with the default configuration and the home server `10.66.66.2` unless you configured it differently.
+Now the two server networks are connected and both can see each other. Lets test the connectivity by using the `ping` command. The VPS will have the `10.66.66.1` ip with the default configuration and the home server `10.66.66.2` unless you configured it differently.
 
 ```sh
 # From the home server
@@ -139,7 +133,7 @@ graph LR;
 
 ## VPN troubleshooting 
 
-If ipv6 is not supported in your system, when for example when running the vpn client in a docker container you can edit the wg0.conf to resolve the issue. Just remove the ipv6 definitions separated by a comma, resulting to a configuration like this:
+If ipv6 is not supported in your system, when for example running the vpn client in a docker container you can edit the `wg0.conf` to resolve the issue. Just remove the ipv6 definitions separated by a comma, resulting to a configuration like this:
 
 ```conf
 [Interface]
@@ -170,7 +164,7 @@ Add the `socat` command to crontab starting with `@reboot` to make it permanent.
 
 ## Containers 
 
-I run all my apps in containers and I have created a docker image that sets up the wireguard client.
+I run all my apps in containers, so I have created a docker image that sets up the wireguard client.
 
 ```dockerfile
 FROM ubuntu:20.04
@@ -187,7 +181,8 @@ This particular dockerfile is designed to run as a sidecar container in a kubern
 
 ## Final thoughts
 
-While this is a very complicated way to essentially enable port forwarding, it has some benefit even if port forwarding is an available option. One benefit is that you do not expose your home ip address and network with the rest of the internet, thus protecting your privacy. All outsiders can see is the location of the data center event though the server is at home.
+While this is a very complicated way to essentially enable port forwarding, it has some benefits even if port forwarding is an available option. One benefit is that you do not expose your home ip address and network to the rest of the internet, thus protecting your privacy. All outsiders can see is the location of the data center event though the server is at home.
 
-For me another benefit is that for the low cost of 5 euros per month, I get a static ip on top of the added security mentioned above. Because of course my provider changes 10 euro for the benefit of having a static ip. I used to pay for a dynamic dns service but now it is not needed anymore.
+For me another benefit is that for 5 euros per month, I get a static ip on top of the added security mentioned above. My ISP charges 10 euros for a static ip.
+
 
